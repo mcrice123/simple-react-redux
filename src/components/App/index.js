@@ -1,12 +1,18 @@
 import React, { Component } from 'react';
 
 import UserInput from '../common/UserInput';
+import NotRedux from '../NotRedux';
+import Container from '../Container';
 
 export default class App extends Component {
   constructor() {
   	super();
 
-  	this.state = { count: 0 };
+  	this.state = { 
+      count: 0,
+      value: ''
+    };
+    this.onInputChange = this.onInputChange.bind(this);
   }
 
   onClickAddOne() {
@@ -15,22 +21,31 @@ export default class App extends Component {
   	this.setState({ count: new_count });
   }
 
+  onInputChange(e) {
+    this.setState({ value: e.target.value });
+  }
+
   render() {
     return (
-      <div style={{marginLeft: '20px'}}>
+      <div style={{marginLeft: '20px', marginRight: '20px'}}>
       	<h1 style={{marginTop: '30px'}}>My awesome app with Redux</h1>
 
-        <div id="app-component" style={{border: '1px solid red', padding: '10px', width: '50%'}}>
+        <div id="app-component" style={{border: '1px solid red', padding: '10px', width: '100%'}}>
       	  <button onClick={this.onClickAddOne.bind(this)} style={{marginBottom: '10px', marginTop: '50px'}}>Add One</button>
 
-          <UserInput placeholder="Input Box 1" value={this.state.value} onChange={(e) => this.setState({ value: e.target.value})} style={{display: 'block'}} />
+          <UserInput placeholder="Input Box 1" value={this.state.value} onChange={this.onInputChange} style={{display: 'block'}} />
 
-          <h2 style={{marginTop: '50px'}}>What's in the App state?</h2>
+          <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
           <p>Current Count: <span style={{color: 'red'}}>{this.state.count}</span></p>
           <p>Input Box 1: <span style={{color: 'red'}}>{this.state.value}</span></p>
+
+          <div style={{display: 'inline', width: '100%'}}>
+            <NotRedux input={this.state.value} onChange={this.onInputChange} />
+
+            <Container />
+          </div>
+        
         </div>
-
-
       </div>
     );
   }
