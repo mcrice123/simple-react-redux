@@ -12,7 +12,6 @@ export class App extends Component {
 
   	this.state = { 
       count: 0,
-      value: ''
     };
     this.onInputChange = this.onInputChange.bind(this);
   }
@@ -54,8 +53,9 @@ export class App extends Component {
 }
 
 export const mapStateToProps = (state) => {
+  console.log("state: ", state.InputState);
   return {
-    input: state.InputState.input,
+    value: state.InputState.value,
   };
 };
 
