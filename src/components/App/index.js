@@ -4,8 +4,9 @@ import { connect } from 'react-redux';
 import UserInput from '../common/UserInput';
 import NotRedux from '../NotRedux';
 import Container from '../Container';
+import { inputChanged } from '../actions';
 
-export default class App extends Component {
+export class App extends Component {
   constructor() {
   	super();
 
@@ -23,7 +24,7 @@ export default class App extends Component {
   }
 
   onInputChange(e) {
-    this.setState({ value: e.target.value });
+    this.props.inputChanged(e.target.value);
   }
 
   render() {
@@ -51,3 +52,15 @@ export default class App extends Component {
     );
   }
 }
+
+export const mapStateToProps = (state) => {
+  return {
+    input: state.InputState.input,
+  };
+};
+
+export const mapDispatchToProps = {
+  inputChanged,
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(App);
