@@ -35,11 +35,13 @@ export class App extends Component {
         <div id="app-component" style={{border: '1px solid red', padding: '10px', width: '100%'}}>
       	  <button onClick={this.onClickAddOne.bind(this)} style={{marginBottom: '10px', marginTop: '50px'}}>Add One</button>
 
-          <UserInput placeholder="Input Box 1" value={this.props.value} onChange={this.onInputChange} style={{display: 'block'}} />
+          <UserInput placeholder="App Input" value={this.props.value} onChange={this.onInputChange} style={{display: 'block', backgroundColor: 'yellow'}} />
 
-          <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
-          <p>Current Count: <span style={{color: 'red'}}>{this.props.count}</span></p>
-          <p>Input Box 1: <span style={{color: 'red'}}>{this.props.value}</span></p>
+          <div>
+            <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
+            <p style={{backgroundColor: 'yellow', width: '25%'}}>Current Count: <span style={{color: 'red'}}>{this.props.count}</span></p>
+            <p style={{backgroundColor: 'yellow', width: '25%'}}>Input Box 1: <span style={{color: 'red'}}>{this.props.value}</span></p>
+          </div>
 
           <div style={{display: 'inline', width: '100%'}}>
             <NotRedux value={this.props.value} onChange={this.onInputChange} />
