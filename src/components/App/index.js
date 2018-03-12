@@ -35,7 +35,7 @@ export class App extends Component {
         <div id="app-component" style={{border: '1px solid red', padding: '10px', width: '100%'}}>
       	  <button onClick={this.onClickAddOne.bind(this)} style={{marginBottom: '10px', marginTop: '50px'}}>Add One</button>
 
-          <UserInput placeholder="Input Box 1" value={this.state.value} onChange={this.onInputChange} style={{display: 'block'}} />
+          <UserInput placeholder="Input Box 1" value={this.props.value} onChange={this.onInputChange} style={{display: 'block'}} />
 
           <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
           <p>Current Count: <span style={{color: 'red'}}>{this.props.count}</span></p>
