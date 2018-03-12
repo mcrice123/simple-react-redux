@@ -41,9 +41,9 @@ export class App extends Component {
           <p>Input Box 1: <span style={{color: 'red'}}>{this.state.value}</span></p>
 
           <div style={{display: 'inline', width: '100%'}}>
-            <NotRedux value={this.state.value} onChange={this.onInputChange} />
+            {/*<NotRedux value={this.state.value} onChange={this.onInputChange} />
 
-            <Container />
+            <Container />*/}
           </div>
         
         </div>
@@ -52,14 +52,14 @@ export class App extends Component {
   }
 }
 
-export const mapStateToProps = (state) => {
-  console.log("state: ", state.InputState);
+const mapStateToProps = (state) => {
+  console.log("state: ", state);
   return {
-    value: state.InputState.value,
+    //value: state.InputState.value,
   };
 };
 
-export const mapDispatchToProps = {
+const mapDispatchToProps = {
   inputChanged,
 };
 

@@ -1,4 +1,4 @@
-import INPUT_CHANGED from './constants';
+import { INPUT_CHANGED } from './constants';
 
 export const initialState = {
 	value: '',
