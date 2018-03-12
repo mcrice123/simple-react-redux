@@ -28,10 +28,15 @@ export class Container extends Component {
 		return (
 			<div style={{marginTop: '10px', padding: '10px', border: '1px solid green', width: '50%'}}>
 				<label style={{marginRight: '10px', display: 'block'}}>This is a <strong>container</strong> ("smart component")</label>
-				<label style={{marginRight: '10px'}}>Input from App State</label>
+				<label style={{marginRight: '10px'}}>Input from App State (<strong>props</strong>)</label>
 				<UserInput style={{backgroundColor: 'yellow', color: 'green'}} value={this.props.value} onChange={this.appInputDidChange} />
-				<label style={{marginRight: '10px'}}>Input from Component State</label>
+				<label style={{marginRight: '10px'}}>Input from Component State (<strong>state</strong>)</label>
 				<UserInput value={this.state.input} onChange={this.inputDidChange} />
+
+				<div>
+					<h4 style={{color: 'red'}}>What is in this component's state?</h4>
+					<p>Input: <span style={{color: 'red'}}>{this.state.input}</span></p>
+				</div>
 			</div>
 		);
 	}
