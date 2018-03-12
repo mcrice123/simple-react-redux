@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import UserInput from '../common/UserInput';
 import NotRedux from '../NotRedux';
 import Container from '../Container';
-import { inputChanged } from '../actions.js';
+import { inputChanged, countChanged } from '../actions.js';
 
 export class App extends Component {
   constructor() {
@@ -18,8 +18,9 @@ export class App extends Component {
 
   onClickAddOne() {
   	console.log("clicked");
-  	const new_count = this.state.count + 1;
-  	this.setState({ count: new_count });
+  	const new_count = this.props.count + 1;
+  	//this.setState({ count: new_count });
+    this.props.countChanged(new_count);
   }
 
   onInputChange(e) {
@@ -37,7 +38,7 @@ export class App extends Component {
           <UserInput placeholder="Input Box 1" value={this.state.value} onChange={this.onInputChange} style={{display: 'block'}} />
 
           <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
-          <p>Current Count: <span style={{color: 'red'}}>{this.state.count}</span></p>
+          <p>Current Count: <span style={{color: 'red'}}>{this.props.count}</span></p>
           <p>Input Box 1: <span style={{color: 'red'}}>{this.props.value}</span></p>
 
           <div style={{display: 'inline', width: '100%'}}>
@@ -56,11 +57,13 @@ const mapStateToProps = (state) => {
   console.log("state: ", state);
   return {
     value: state.InputState.value,
+    count: state.InputState.count,
   };
 }
 
 const mapDispatchToProps = {
   inputChanged,
+  countChanged,
 }
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);

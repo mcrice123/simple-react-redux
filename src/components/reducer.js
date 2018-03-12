@@ -2,6 +2,7 @@ import { INPUT_CHANGED, COUNT_CHANGED } from './constants.js';
 console.log("reducer: ", INPUT_CHANGED);
 export const initialState = {
 	value: '',
+	count: 0,
 };
 
 export default (state = initialState, action) => {
