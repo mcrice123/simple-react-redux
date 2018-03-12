@@ -1,8 +1,7 @@
-import { INPUT_CHANGED } from './constants';
-
+import { INPUT_CHANGED } from './constants.js';
+console.log(INPUT_CHANGED);
 export const inputChanged = (value) => {
-	console.log("meow");
-	console.log("value, ", value);
+	console.log("value inside action, ", value);
 	return {
 		type: INPUT_CHANGED,
 		value,

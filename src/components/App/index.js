@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 import UserInput from '../common/UserInput';
 import NotRedux from '../NotRedux';
 import Container from '../Container';
-import { inputChanged } from '../actions';
+import { inputChanged } from '../actions.js';
 
 export class App extends Component {
   constructor() {
@@ -38,7 +38,7 @@ export class App extends Component {
 
           <h2 style={{marginTop: '50px'}}>What is in the App state?</h2>
           <p>Current Count: <span style={{color: 'red'}}>{this.state.count}</span></p>
-          <p>Input Box 1: <span style={{color: 'red'}}>{this.state.value}</span></p>
+          <p>Input Box 1: <span style={{color: 'red'}}>{this.props.value}</span></p>
 
           <div style={{display: 'inline', width: '100%'}}>
             {/*<NotRedux value={this.state.value} onChange={this.onInputChange} />
@@ -55,12 +55,12 @@ export class App extends Component {
 const mapStateToProps = (state) => {
   console.log("state: ", state);
   return {
-    //value: state.InputState.value,
+    value: state.InputState.value,
   };
-};
+}
 
 const mapDispatchToProps = {
   inputChanged,
-};
+}
 
 export default connect(mapStateToProps, mapDispatchToProps)(App);
