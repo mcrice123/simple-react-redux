@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 
 import UserInput from '../common/UserInput';
 
-class Container extends Component {
+export class Container extends Component {
 	constructor() {
 		super();
 
@@ -31,4 +31,14 @@ class Container extends Component {
 	}
 }
 
-export default Container;
+const mapStateToProps = (state) => {
+	return {
+		all: state,
+		value: state.InputState.value,
+	};
+};
+const mapDispatchToProps = {
+
+};
+
+export default connect(mapStateToProps, mapDispatchToProps)(Container);
