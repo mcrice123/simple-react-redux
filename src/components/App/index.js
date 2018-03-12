@@ -42,7 +42,7 @@ export class App extends Component {
           <p>Input Box 1: <span style={{color: 'red'}}>{this.props.value}</span></p>
 
           <div style={{display: 'inline', width: '100%'}}>
-            <NotRedux value={this.state.value} onChange={this.onInputChange} />
+            <NotRedux value={this.props.value} onChange={this.onInputChange} />
 
             <Container />
           </div>

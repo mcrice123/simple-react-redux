@@ -26,7 +26,7 @@ class NotRedux extends Component {
 				<label style={{display: 'block'}}>This component does NOT have Redux</label>
 				<div>
 					<label style={{marginRight: '10px'}}>Input from App State</label>
-					<UserInput value={this.props.value} onChange={this.onComponentInputChange} />
+					<UserInput value={this.props.value} onChange={this.props.onChange} style={{backgroundColor: 'yellow', color: 'blue'}} />
 				</div>
 				<div>
 					<label style={{marginRight: '10px'}}>Input from Component State</label>
