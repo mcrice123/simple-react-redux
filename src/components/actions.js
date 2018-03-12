@@ -1,10 +1,16 @@
-import { INPUT_CHANGED } from './constants.js';
-console.log(INPUT_CHANGED);
+import { INPUT_CHANGED, COUNT_CHANGED } from './constants.js';
+
 export const inputChanged = (value) => {
-	console.log("value inside action, ", value);
 	return {
 		type: INPUT_CHANGED,
 		value,
+	};
+};
+
+export const countChanged = (count) => {
+	return {
+		type: COUNT_CHANGED,
+		count,
 	};
 };
 
